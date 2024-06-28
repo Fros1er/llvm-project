@@ -2597,7 +2597,7 @@ bool TargetLowering::SimplifyDemandedBits(
         HighBits.lshrInPlace(ShVal);
         HighBits = HighBits.trunc(BitWidth);
 
-        if (!isTypeDesirableForOp(ISD::SRL, Op.getValueType(),
+        if (!isTypeDesirableForOpWithCast(ISD::SRL, Op.getValueType(),
                                   Src.getValueType()) &&
             !(HighBits & DemandedBits)) {
           // None of the shifted in bits are needed.  Add a truncate of the

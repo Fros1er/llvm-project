@@ -17537,12 +17537,12 @@ bool RISCVTargetLowering::isDesirableToCommuteWithShift(
   return true;
 }
 
-bool RISCVTargetLowering::isTypeDesirableForOp(unsigned Opc, EVT NewVT,
+bool RISCVTargetLowering::isTypeDesirableForOpWithCast(unsigned Opc, EVT NewVT,
                                                EVT OldVT) const {
   if (Subtarget.hasStdExtV() && NewVT.isVector() && OldVT.isVector()) {
     return true;
   }
-  return TargetLowering::isTypeDesirableForOp(Opc, NewVT, OldVT);
+  return TargetLowering::isTypeDesirableForOpWithCast(Opc, NewVT, OldVT);
 }
 
 bool RISCVTargetLowering::targetShrinkDemandedConstant(
